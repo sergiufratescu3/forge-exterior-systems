@@ -28,6 +28,15 @@ yarn-error.log*
 # local env files
 .env*.local
 
+# runtime data — the SQLite database and uploaded project/inquiry photos
+# should never be committed; they are created automatically at runtime.
+/data/*
+!/data/.gitkeep
+/public/uploads/projects/*
+!/public/uploads/projects/.gitkeep
+/public/uploads/inquiries/*
+!/public/uploads/inquiries/.gitkeep
+
 # vercel
 .vercel
 

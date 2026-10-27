@@ -3,25 +3,57 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-inter: "Inter", system-ui, sans-serif;
+  --font-archivo: "Archivo", system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ffffff;
+  color: #171a1c;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* Visible, consistent focus state for keyboard navigation. */
+:focus-visible {
+  outline: 2px solid #a66b45;
+  outline-offset: 2px;
+}
+
+/* Utility: short uppercase label style used for section identifiers/eyebrows. */
+.label-eyebrow {
+  @apply text-xs font-semibold uppercase tracking-widest2 text-copper;
+}
+
+/* Consistent, controlled paragraph measure for body copy blocks. */
+.prose-measure {
+  max-width: 42rem;
+}
+
+/* Skip link for keyboard users */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: #171a1c;
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
 }
